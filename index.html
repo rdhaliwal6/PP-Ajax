@@ -5,9 +5,10 @@
     <title>PP AJAX</title>
 </head>
 <body>
+<form method="post" action="#">
 <label><strong>Select Term</strong>
     <br>
-    <select>
+    <select id="terms" name="terms">
         <option value="ajax">ajax</option>
         <option value="button">button</option>
         <option value="load">load</option>
@@ -15,9 +16,17 @@
         <option value="php">php</option>
     </select>
 </label>
-<button id="searchBtn">Search</button>
+    <input type="submit" id="searchBtn" value="search">
+</form>
 <div id="output">
 
 </div>
 </body>
+<script src="//code.jquery.com/jquery.js"></script>
+<script>
+    $("#searchBtn").on("click", function () {
+        $("#output").html("<strong>" + $("#terms").val() + "</strong>");
+        $("#output").load('script.php');
+    });
+</script>
 </html>
